@@ -1,1 +1,6 @@
 application.name = Product catalog
+
+product.details = Details of {0}
+ean = Ean ID
+name = Name
+desc = Le deskiripsiyon

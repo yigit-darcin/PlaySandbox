@@ -1,1 +1,6 @@
 application.name = Ürün Yerleştirmeleriğ
+
+product.details = Şunun Detayi {0}
+ean = Ean ID'si
+name = Adı
+desc = Lö Açıklamasıs

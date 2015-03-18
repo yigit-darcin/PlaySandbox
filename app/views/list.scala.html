@@ -4,8 +4,9 @@
 
   <dl class="products">
     @for(product <- products) {
-      <dt>@product.ean</dt>
+      <dt><a href="/products/@product.ean">@product.ean</a></dt>
       <dd>@product.name</dd>
+      <dd>@product.desc</dd>
     }
   </dl>
 
