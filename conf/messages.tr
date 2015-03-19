@@ -4,3 +4,13 @@ product.details = Şunun Detayi {0}
 ean = Ean ID'si
 name = Adı
 desc = Lö Açıklamasıs
+
+products.form = Ürün Detay
+products.new = (yeni)
+products.new.command = Yeniii
+
+products.new.submit = Ekle
+products.new.success = {0} başarıyla eklendi.
+
+validation.errors = Hatasız kul olmaz
+validation.ean.duplicate = Bu ean'dan daha önce gördüydüm

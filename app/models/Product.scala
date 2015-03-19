@@ -21,4 +21,7 @@ object Product {
 
   def findById(ean: Long) = products.find(_.ean == ean)
 
+  def add(product: Product) {
+    products = products + product
+  }
 }
