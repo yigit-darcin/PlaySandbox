@@ -5,14 +5,21 @@ import play.api.data.Form
 import play.api.data.Forms.{longNumber, mapping, nonEmptyText}
 import play.api.i18n.Messages
 import play.api.mvc.{Flash, Action, Controller}
+import securesocial.core.{Identity, Authorization, SecureSocial}
 
-object Products extends Controller {
+object Products extends Controller  with SecureSocial {
 
-  def list = Action { implicit request =>
+  def list = SecuredAction  { implicit request =>
 
     val products = Product.findAll
 
     Ok(views.html.list(products))
+  }
+
+  case class WithProvider(provider: String) extends Authorization {
+    def isAuthorized(user: Identity) = {
+      user.identityId.providerId == provider
+    }
   }
 
   def show(ean: Long) = Action { implicit request =>

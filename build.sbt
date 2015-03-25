@@ -11,7 +11,8 @@ Play2WarKeys.servletVersion := "3.0"
 libraryDependencies ++= Seq(
   jdbc,
   anorm,
-  cache
+  cache,
+  "ws.securesocial" %% "securesocial" % "2.1.4"
 )
 
 play.Project.playScalaSettings
