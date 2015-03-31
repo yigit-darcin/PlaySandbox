@@ -1,6 +1,8 @@
 package controllers
 
 import models.Product
+import play.api.cache.Cache
+import play.api.Play.current
 import play.api.data.Form
 import play.api.data.Forms.{longNumber, mapping, nonEmptyText}
 import play.api.i18n.Messages
@@ -11,9 +13,13 @@ object Products extends Controller with SecureSocial {
 
   def list = Action { implicit request =>
 
-    val products = Product.findAll
+    val products = Cache.getOrElse("products") {
+      println("from db")
+      Product.findAll
+    }
 
     Ok(views.html.list(products))
+
   }
 
 

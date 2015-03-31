@@ -12,9 +12,11 @@ libraryDependencies ++= Seq(
   jdbc,
   anorm,
   cache,
-  "ws.securesocial" %% "securesocial" % "2.1.4"
+  "ws.securesocial" %% "securesocial" % "2.1.4",
+  "com.github.mumoshu" %% "play2-memcached" % "0.4.0"
 )
 
 play.Project.playScalaSettings
 
+resolvers += "Spy Repository" at "http://files.couchbase.com/maven2"
 
