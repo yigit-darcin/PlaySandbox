@@ -7,9 +7,17 @@ import play.api.i18n.Messages
 import play.api.mvc.{Flash, Action, Controller}
 import securesocial.core.{Identity, Authorization, SecureSocial}
 
-object Products extends Controller  with SecureSocial {
+object Products extends Controller with SecureSocial {
 
-  def list = SecuredAction  { implicit request =>
+  def list = Action { implicit request =>
+
+    val products = Product.findAll
+
+    Ok(views.html.list(products))
+  }
+
+
+  def securedList = SecuredAction { implicit request =>
 
     val products = Product.findAll
 
@@ -38,13 +46,13 @@ object Products extends Controller  with SecureSocial {
   )
 
   def newProduct = Action { implicit request =>
-      val form = if (flash.get("error").isDefined)
-        productForm.bind(flash.data)
-      else
-        productForm
+    val form = if (flash.get("error").isDefined)
+      productForm.bind(flash.data)
+    else
+      productForm
 
-      Ok(views.html.edit(form))
-    }
+    Ok(views.html.edit(form))
+  }
 
   def save = Action { implicit request =>
     val newProductForm = productForm.bindFromRequest()
