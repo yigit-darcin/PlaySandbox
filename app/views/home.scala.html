@@ -1,0 +1,61 @@
+@(leftSideHTML: Html, rightSideHTML: Html)
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+    <head>
+<style type="text/css">
+
+#header
+{
+ position:fixed;
+ top:0px;
+ left:0px;
+ right:0px;
+ height:20%;
+ overflow:hidden;
+}
+#leftSide
+{
+ position:fixed;
+ top:21%;
+ left:0px;
+ width:20%;
+ bottom:21%;
+}
+#rightSide
+{
+ position:fixed;
+ top:21%;
+ right:0px;
+ width:20%;
+ bottom:21%;
+}
+#footer
+{
+ position:fixed;
+ height:20%;
+ left:0px;
+ right:0px;
+ bottom:0px;
+}
+#content
+{
+ position:fixed;
+ top:21%;
+ bottom:21%;
+ left:21%;
+ width:57%;
+}
+div {display:block; border:1px solid black;}
+
+
+</style>
+    </head>
+
+    <body>
+        <div id="header">HEADER</div>
+         <div id="leftSide">@leftSideHTML</div>
+         <div id="content">CONTENT</div>
+         <div id="rightSide">@rightSideHTML</div>
+         <div id="footer">FOOTER)</div>
+    </body>
+</html>
