@@ -4,37 +4,38 @@
 
 # Home page
 GET         /                              controllers.Application.index
-GET         /home                          controllers.Home.main
+GET        /home                           controllers.Home.main
 POST        /products                      controllers.Products.save
-GET         /products/new                  controllers.Products.newProduct
-GET         /products                      controllers.Products.list
-GET         /products/:ean                 controllers.Products.show(ean: Long)
-GET         /barcode/:ean                  controllers.Barcodes.barcode(ean: Long)
-GET         /mock/:serviceName             controllers.Mock.mock(serviceName :String)
-GET         /rightSide                     controllers.RightSide.index(embed: Integer ?= 0)
-GET         /leftSide                      controllers.LeftSide.index(embed: Integer ?= 0 )
+GET        /products/new                   controllers.Products.newProduct
+GET        /products                       controllers.Products.list
+GET        /products/:ean                  controllers.Products.show(ean: Long)
+GET        /barcode/:ean                   controllers.Barcodes.barcode(ean: Long)
+GET        /mock/:serviceName              controllers.Mock.mock(serviceName :String)
+GET        /rightSide                      controllers.RightSide.index(embed: Integer ?= 0)
+GET        /rightSide/enumerator           controllers.RightSideEnumerator.index
+GET        /leftSide                       controllers.LeftSide.index(embed: Integer ?= 0 )
+GET        /rightStream                    controllers.RightSideStream.index
 
-# Map static resources from the /public folder to the /assets URL path
-GET         /assets/*file                  controllers.Assets.at(path="/public", file)
+GET        /assets/*file                   controllers.Assets.at(path="/public", file)
 
 #Login page
-GET         /login                         securesocial.controllers.LoginPage.login
-GET         /logout                        securesocial.controllers.LoginPage.logout
+GET        /login                          securesocial.controllers.LoginPage.login
+GET        /logout                         securesocial.controllers.LoginPage.logout
 
 # User Registration and password handling (only needed if you are using UsernamePasswordProvider)
-GET         /signup                        securesocial.controllers.Registration.startSignUp
+GET        /signup                         securesocial.controllers.Registration.startSignUp
 POST        /signup                        securesocial.controllers.Registration.handleStartSignUp
-GET         /signup/:token                 securesocial.controllers.Registration.signUp(token)
+GET        /signup/:token                  securesocial.controllers.Registration.signUp(token)
 POST        /signup/:token                 securesocial.controllers.Registration.handleSignUp(token)
-GET         /reset                         securesocial.controllers.Registration.startResetPassword
+GET        /reset                          securesocial.controllers.Registration.startResetPassword
 POST        /reset                         securesocial.controllers.Registration.handleStartResetPassword
-GET         /reset/:token                  securesocial.controllers.Registration.resetPassword(token)
+GET        /reset/:token                   securesocial.controllers.Registration.resetPassword(token)
 POST        /reset/:token                  securesocial.controllers.Registration.handleResetPassword(token)
-GET         /password                      securesocial.controllers.PasswordChange.page
+GET        /password                       securesocial.controllers.PasswordChange.page
 POST        /password                      securesocial.controllers.PasswordChange.handlePasswordChange
 
 
 # Providers entry points
-GET         /authenticate/:provider        securesocial.controllers.ProviderController.authenticate(provider)
+GET        /authenticate/:provider         securesocial.controllers.ProviderController.authenticate(provider)
 POST        /authenticate/:provider        securesocial.controllers.ProviderController.authenticateByPost(provider)
-GET         /not-authorized                securesocial.controllers.ProviderController.notAuthorized
+GET        /not-authorized                 securesocial.controllers.ProviderController.notAuthorized

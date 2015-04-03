@@ -8,9 +8,11 @@ object RightSide extends Controller {
 
   def index(embed: Integer) = Action.async {
     val rightSideFuture = ServiceClient.makeServiceCall("rightSide")
+    val rightSideFuture2 = ServiceClient.makeServiceCall("rightSide2")
 
     for {
       count <- rightSideFuture
+      count2 <- rightSideFuture2
 
     } yield {
       if (embed == 1) {

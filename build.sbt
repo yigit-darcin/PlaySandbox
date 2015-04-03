@@ -2,7 +2,7 @@ import com.github.play2war.plugin.{Play2WarKeys, Play2WarPlugin}
 
 name := "products"
 
-version := "0,1"
+version := "0.1"
 
 Play2WarPlugin.play2WarSettings
 
@@ -17,6 +17,10 @@ libraryDependencies ++= Seq(
 )
 
 play.Project.playScalaSettings
+
+play.Keys.templatesTypes ++= Map("stream" -> "ui.HtmlStreamFormat")
+
+play.Keys.templatesImport ++= Vector("_root_.ui.HtmlStream", "_root_.ui.HtmlStream._")
 
 resolvers += "Spy Repository" at "http://files.couchbase.com/maven2"
 

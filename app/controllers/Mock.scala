@@ -11,7 +11,8 @@ object Mock extends Controller {
   def mock(serviceName: String) = Action.async {
 
     serviceName match {
-      case "rightSide" => respond(data = "5210", delay = 5210)
+      case "rightSide" => respond(data = "210", delay = 210)
+      case "rightSide2" => respond(data = "4210", delay = 4210)
       case "leftSide" => respond(data = "1000", delay = 1000)
     }
   }
