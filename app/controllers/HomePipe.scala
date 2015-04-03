@@ -15,10 +15,10 @@ object HomePipe extends Controller {
     val content = ServiceClient.makeServiceCall("content")
     val leftSide = ServiceClient.makeServiceCall("leftSide")
 
-    val rightSideStream = Pagelet.renderStream(rightSide.map(str => views.html.rightPartial(str)), "rightSide1")
-    val rightSideStream2 = Pagelet.renderStream(rightSide2.map(str => views.html.rightPartial2(str)), "rightSide2")
-    val contentStream = Pagelet.renderStream(content.map(str => views.html.contentPartial(str)), "content")
-    val leftSideStream = Pagelet.renderStream(leftSide.map(str => views.html.leftPartial(str)), "leftSide")
+    val rightSideStream = Pagelet.renderStream(rightSide.map(str => views.html.partial(str)), "rightSide1")
+    val rightSideStream2 = Pagelet.renderStream(rightSide2.map(str => views.html.partial(str)), "rightSide2")
+    val contentStream = Pagelet.renderStream(content.map(str => views.html.partial(str)), "content")
+    val leftSideStream = Pagelet.renderStream(leftSide.map(str => views.html.partial(str)), "leftSide")
 
     val body = HtmlStream.interleave(contentStream, leftSideStream, rightSideStream, rightSideStream2)
 

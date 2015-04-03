@@ -52,14 +52,14 @@ div {display:block; border:1px solid black;}
     </head>
 
     <body>
-        <div id="header"><center>This is the HEADER that is static </center></div>
+        <div id="header"><p style="padding:20px"><center>This is the HEADER that is static </center></p></div>
          <div id="leftSide"></div>
          <div id="content"></div>
          <div id="rightSide">
             <div id="rightSide1"></div>
             <div id="rightSide2"></div>
          </div>
-         <div id="footer"><center>This is the FOOTER that is static </center></div>
+         <div id="footer"><p style="padding:20px"><center>This is the FOOTER that is static </center></p></div>
 
         @body
     </body>
